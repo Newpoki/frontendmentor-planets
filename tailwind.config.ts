@@ -6,7 +6,14 @@ const config: Config = {
         './components/**/*.{js,ts,jsx,tsx,mdx}',
         './app/**/*.{js,ts,jsx,tsx,mdx}',
     ],
-    theme: {},
+    theme: {
+        extend: {
+            fontFamily: {
+                antonio: ['var(--font-antonio)'],
+                spartan: ['var(--font-spartan)'],
+            },
+        },
+    },
     plugins: [],
 }
 export default config

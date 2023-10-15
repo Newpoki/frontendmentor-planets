@@ -1,8 +1,9 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Antonio, League_Spartan } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+const antonio = Antonio({ subsets: ['latin'], variable: '--font-antonio' })
+const spartan = League_Spartan({ subsets: ['latin'], variable: '--font-spartan' })
 
 export const metadata: Metadata = {
     title: 'Planets facts',
@@ -16,7 +17,7 @@ type Props = {
 export default function RootLayout({ children }: Props) {
     return (
         <html lang="en">
-            <body className={inter.className}>{children}</body>
+            <body className={`${antonio.variable} ${spartan.variable}`}>{children}</body>
         </html>
     )
 }
