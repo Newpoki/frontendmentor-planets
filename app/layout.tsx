@@ -25,11 +25,9 @@ export default function RootLayout({ children }: Props) {
                 <div className="flex flex-1 flex-col bg-stars-pattern bg-cover bg-center">
                     <Header />
 
-                    <main className="flex flex-1 flex-col">
-                        <MobileViewTabs />
+                    <MobileViewTabs />
 
-                        {children}
-                    </main>
+                    <main className="flex flex-1 flex-col">{children}</main>
                 </div>
             </body>
         </html>
