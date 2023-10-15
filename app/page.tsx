@@ -1,5 +1,3 @@
 export default function Home() {
-    return (
-        <main className="flex min-h-screen flex-col font-spartan">Lorem ipsum dolor sit amet</main>
-    )
+    return <main className="flex flex-col font-spartan">Lorem ipsum dolor sit amet</main>
 }

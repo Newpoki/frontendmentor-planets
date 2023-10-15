@@ -1,6 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Antonio, League_Spartan } from 'next/font/google'
+import { Header } from './header/header'
 
 const antonio = Antonio({ subsets: ['latin'], variable: '--font-antonio' })
 const spartan = League_Spartan({ subsets: ['latin'], variable: '--font-spartan' })
@@ -17,7 +18,13 @@ type Props = {
 export default function RootLayout({ children }: Props) {
     return (
         <html lang="en">
-            <body className={`${antonio.variable} ${spartan.variable}`}>{children}</body>
+            <body
+                className={`${antonio.variable} ${spartan.variable} ${spartan.className} text-white bg-space flex flex-col h-screen`}
+            >
+                <Header />
+
+                <main className="flex-1 flex flex-col">{children}</main>
+            </body>
         </html>
     )
 }
