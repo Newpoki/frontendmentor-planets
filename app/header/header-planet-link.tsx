@@ -1,11 +1,16 @@
+'use client'
+
 import IconChevron from '@/public/assets/icon-chevron.svg'
-import Image from 'next/image'
 import Link from 'next/link'
 import { twMerge } from 'tailwind-merge'
 import { PlanetsName } from '../types'
+import { forwardRef, useCallback, useEffect, useRef } from 'react'
+import { usePathname } from 'next/navigation'
+import { HeaderPlanetLinkIndicatorData } from './types'
 
 type Props = {
     name: PlanetsName
+    setCurrentLinkIndicatorData: ((data: HeaderPlanetLinkIndicatorData) => void) | null
 }
 
 const planetsColor: { [planetName in PlanetsName]: string } = {
@@ -19,18 +24,60 @@ const planetsColor: { [planetName in PlanetsName]: string } = {
     neptune: 'bg-neptune-soft',
 }
 
-export const HeaderPlanetLink = ({ name }: Props) => {
+export const HeaderPlanetLink = ({ name, setCurrentLinkIndicatorData }: Props) => {
+    const pathName = usePathname()
+
+    const ref = useRef<HTMLLIElement>(null)
+
     const planetColor = planetsColor[name]
 
+    const isCurrentRoute = pathName === `/${name}`
+
+    // Update the current link indicator with the current found link
+    const handleChangeCurrentLinkIndicatorData = useCallback(() => {
+        if (ref.current != null && isCurrentRoute) {
+            const clientRect = ref.current.getBoundingClientRect()
+            const name = ref.current.getAttribute('data-attribute-name')
+
+            if (name == null || setCurrentLinkIndicatorData == null) {
+                return
+            }
+
+            setCurrentLinkIndicatorData({
+                left: clientRect.left,
+                width: clientRect.width,
+                name: name as PlanetsName,
+            })
+        }
+    }, [isCurrentRoute, setCurrentLinkIndicatorData])
+
+    useEffect(() => {
+        handleChangeCurrentLinkIndicatorData()
+    }, [handleChangeCurrentLinkIndicatorData])
+
+    // Update the current link indicator data on resize
+    useEffect(() => {
+        window.addEventListener('resize', handleChangeCurrentLinkIndicatorData)
+
+        return () => {
+            window.removeEventListener('resize', handleChangeCurrentLinkIndicatorData)
+        }
+    }, [handleChangeCurrentLinkIndicatorData])
+
     return (
-        <li className="tablet:px-0 pl-6 pr-8">
+        <li className="tablet:px-0 pl-6 pr-8" ref={ref} data-attribute-name={name}>
             <Link
                 href={name}
-                className="tablet:border-0 tablet:py-0 flex items-center justify-between border-b-1 border-b-white/10 py-5"
+                className="tablet:border-0 tablet:py-9 flex items-center justify-between border-b-1 border-b-white/10 py-5"
             >
                 <div className="flex items-center gap-6">
                     <span className={twMerge('tablet:hidden h-5 w-5 rounded-full', planetColor)} />
-                    <span className="tablet:text-white/75 tablet:hover:text-white text-menu uppercase text-white">
+                    <span
+                        className={twMerge(
+                            'tablet:text-white/75 tablet:hover:text-white text-menu uppercase text-white',
+                            isCurrentRoute && 'tablet:text-white'
+                        )}
+                    >
                         {name}
                     </span>
                 </div>
