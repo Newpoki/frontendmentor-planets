@@ -1,7 +1,7 @@
 export default function NotFound() {
     return (
         <section className="flex flex-1 flex-col items-center justify-center gap-4">
-            <h2>
+            <h2 className="flex items-center">
                 <span className="text-h2 after:mx-2 after:content-['|']">404</span>
                 <span className="text-body">Not found</span>
             </h2>
