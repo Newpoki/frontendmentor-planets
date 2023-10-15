@@ -1,31 +1,34 @@
 {
-  "name": "planets-fact-site",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@svgr/webpack": "^8.1.0",
-    "next": "13.5.4",
-    "react": "^18",
-    "react-dom": "^18",
-    "tailwind-merge": "^1.14.0"
-  },
-  "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "autoprefixer": "^10",
-    "eslint": "^8",
-    "eslint-config-next": "13.5.4",
-    "postcss": "^8",
-    "prettier": "^3.0.3",
-    "prettier-plugin-tailwindcss": "^0.5.6",
-    "tailwindcss": "^3",
-    "typescript": "^5"
-  }
+    "name": "planets-fact-site",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint"
+    },
+    "dependencies": {
+        "next": "13.5.4",
+        "react": "^18",
+        "react-dom": "^18",
+        "tailwind-merge": "^1.14.0"
+    },
+    "devDependencies": {
+        "@svgr/webpack": "^8.1.0",
+        "@types/node": "^20",
+        "@types/react": "^18",
+        "@types/react-dom": "^18",
+        "@typescript-eslint/eslint-plugin": "^6.7.5",
+        "@typescript-eslint/parser": "^6.7.5",
+        "autoprefixer": "^10",
+        "eslint": "^8",
+        "eslint-config-next": "13.5.4",
+        "postcss": "^8",
+        "prettier": "^3.0.3",
+        "prettier-plugin-tailwindcss": "^0.5.6",
+        "tailwindcss": "^3",
+        "typescript": "^5"
+    },
+    "packageManager": "yarn@3.6.4"
 }

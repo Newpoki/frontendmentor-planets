@@ -4,13 +4,13 @@ import IconChevron from '@/public/assets/icon-chevron.svg'
 import Link from 'next/link'
 import { twMerge } from 'tailwind-merge'
 import { PlanetsName } from '../types'
-import { forwardRef, useCallback, useEffect, useRef } from 'react'
+import { useCallback, useEffect, useRef } from 'react'
 import { usePathname } from 'next/navigation'
 import { HeaderPlanetLinkIndicatorData } from './types'
 
 type Props = {
     name: PlanetsName
-    setCurrentLinkIndicatorData: ((data: HeaderPlanetLinkIndicatorData) => void) | null
+    setCurrentLinkIndicatorData?: (data: HeaderPlanetLinkIndicatorData) => void
 }
 
 const planetsColor: { [planetName in PlanetsName]: string } = {
@@ -65,16 +65,16 @@ export const HeaderPlanetLink = ({ name, setCurrentLinkIndicatorData }: Props) =
     }, [handleChangeCurrentLinkIndicatorData])
 
     return (
-        <li className="tablet:px-0 pl-6 pr-8" ref={ref} data-attribute-name={name}>
+        <li className="pl-6 pr-8 tablet:px-0" ref={ref} data-attribute-name={name}>
             <Link
                 href={name}
-                className="tablet:border-0 tablet:py-9 flex items-center justify-between border-b-1 border-b-white/10 py-5"
+                className="flex items-center justify-between border-b-1 border-b-white/10 py-5 tablet:border-0 tablet:py-9"
             >
                 <div className="flex items-center gap-6">
-                    <span className={twMerge('tablet:hidden h-5 w-5 rounded-full', planetColor)} />
+                    <span className={twMerge('h-5 w-5 rounded-full tablet:hidden', planetColor)} />
                     <span
                         className={twMerge(
-                            'tablet:text-white/75 tablet:hover:text-white text-menu uppercase text-white',
+                            'text-menu uppercase text-white tablet:text-white/75 tablet:hover:text-white',
                             isCurrentRoute && 'tablet:text-white'
                         )}
                     >

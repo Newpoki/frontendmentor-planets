@@ -1,7 +1,6 @@
 'use client'
 
 import { Drawer } from '../components/drawer'
-import { HeaderPlanetLink } from './header-planet-link'
 import IconHamburger from '@/public/assets/icon-hamburger.svg'
 import { useCallback, useState } from 'react'
 import { twMerge } from 'tailwind-merge'

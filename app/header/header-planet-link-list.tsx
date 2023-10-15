@@ -2,7 +2,7 @@ import { HeaderPlanetLink } from './header-planet-link'
 import { HeaderPlanetLinkIndicatorData } from './types'
 
 type Props = {
-    setCurrentLinkIndicatorData: ((data: HeaderPlanetLinkIndicatorData) => void) | null
+    setCurrentLinkIndicatorData?: (data: HeaderPlanetLinkIndicatorData) => void
 }
 
 export const HeaderPlanetLinkList = ({ setCurrentLinkIndicatorData }: Props) => {
