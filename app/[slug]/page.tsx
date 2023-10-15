@@ -1,7 +1,7 @@
 export default function Planet() {
     return (
         <div>
-            <p>planet</p>
+            <p>lol</p>
         </div>
     )
 }

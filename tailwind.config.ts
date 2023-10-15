@@ -92,6 +92,14 @@ const config: Config = {
                         letterSpacing: '1.364px',
                     },
                 ],
+                menuSmall: [
+                    '9px',
+                    {
+                        fontWeight: 700,
+                        lineHeight: 'normal',
+                        letterSpacing: '1.929px',
+                    },
+                ],
                 body: [
                     '14px',
                     {
