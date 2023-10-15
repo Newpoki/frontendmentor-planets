@@ -30,6 +30,9 @@ const config: Config = {
             'neptune-soft': '#497EFA',
         },
         extend: {
+            backgroundImage: {
+                'stars-pattern': 'url("/assets/background-stars.svg")',
+            },
             borderWidth: {
                 1: '1px',
             },

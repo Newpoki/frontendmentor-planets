@@ -21,9 +21,11 @@ export default function RootLayout({ children }: Props) {
             <body
                 className={`${antonio.variable} ${spartan.variable} ${spartan.className} flex h-screen flex-col bg-space text-white`}
             >
-                <Header />
+                <div className="bg-stars-pattern flex flex-1 flex-col bg-cover bg-center">
+                    <Header />
 
-                <main className="flex flex-1 flex-col">{children}</main>
+                    <main className="flex flex-1 flex-col">{children}</main>
+                </div>
             </body>
         </html>
     )
