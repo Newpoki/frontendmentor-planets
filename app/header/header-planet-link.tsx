@@ -1,4 +1,4 @@
-import iconChevron from '@/public/assets/icon-chevron.svg'
+import IconChevron from '@/public/assets/icon-chevron.svg'
 import Image from 'next/image'
 import Link from 'next/link'
 import { twMerge } from 'tailwind-merge'
@@ -33,7 +33,7 @@ export const HeaderPlanetLink = ({ name }: Props) => {
                     <span className="text-menu uppercase">{name}</span>
                 </div>
 
-                <Image src={iconChevron} alt="A chevron icon pointing to the right" />
+                <IconChevron />
             </Link>
         </li>
     )

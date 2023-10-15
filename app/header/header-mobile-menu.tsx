@@ -1,10 +1,10 @@
 'use client'
 
-import Image from 'next/image'
 import { Drawer } from '../components/drawer'
 import { HeaderPlanetLink } from './header-planet-link'
-import iconHamburger from '@/public/assets/icon-hamburger.svg'
+import IconHamburger from '@/public/assets/icon-hamburger.svg'
 import { useCallback, useState } from 'react'
+import { twMerge } from 'tailwind-merge'
 
 export const HeaderMobileMenu = () => {
     const [isOpen, setIsOpen] = useState(false)
@@ -16,7 +16,13 @@ export const HeaderMobileMenu = () => {
     return (
         <>
             <button type="button" onClick={handleToggleDrawer}>
-                <Image src={iconHamburger} alt="Hamburger icon to toggle menu opening state" />
+                <IconHamburger
+                    className={twMerge(
+                        'text-white',
+                        isOpen && 'text-white/20',
+                        'transition-colors'
+                    )}
+                />
             </button>
 
             <Drawer className="flex h-[calc(100%-70px)] flex-col justify-center" isOpen={isOpen}>
