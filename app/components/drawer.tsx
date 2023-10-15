@@ -12,7 +12,7 @@ export const Drawer = ({ children, className, isOpen }: Props) => {
     return (
         <div
             className={twMerge(
-                'top-[70px] left-0 w-full -translate-x-full fixed bg-space transition-transform z-50',
+                'absolute left-0 top-[70px] z-50 w-full -translate-x-full bg-space transition-transform',
                 isOpen && 'translate-x-0',
                 className
             )}

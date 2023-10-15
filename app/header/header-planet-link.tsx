@@ -26,10 +26,10 @@ export const HeaderPlanetLink = ({ name }: Props) => {
         <li className="pl-6 pr-8">
             <Link
                 href={name}
-                className=" py-5 flex items-center justify-between border-b-1  border-b-white/10 "
+                className="flex items-center justify-between border-b-1 border-b-white/10 py-5"
             >
                 <div className="flex items-center gap-6">
-                    <span className={twMerge('w-5 h-5 rounded-full', planetColor)} />
+                    <span className={twMerge('h-5 w-5 rounded-full', planetColor)} />
                     <span className="text-menu uppercase">{name}</span>
                 </div>
 

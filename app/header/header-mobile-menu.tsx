@@ -15,17 +15,12 @@ export const HeaderMobileMenu = () => {
 
     return (
         <>
-            <Image
-                src={iconHamburger}
-                alt="Hamburger icon to toggle menu opening state"
-                onClick={handleToggleDrawer}
-            />
+            <button type="button" onClick={handleToggleDrawer}>
+                <Image src={iconHamburger} alt="Hamburger icon to toggle menu opening state" />
+            </button>
 
-            <Drawer
-                className="min-h-[calc(100%-70px)] flex flex-col justify-center"
-                isOpen={isOpen}
-            >
-                <ul>
+            <Drawer className="flex h-[calc(100%-70px)] flex-col justify-center" isOpen={isOpen}>
+                <ul className="overflow-y-auto">
                     <HeaderPlanetLink name="mercury" />
                     <HeaderPlanetLink name="venus" />
                     <HeaderPlanetLink name="earth" />
