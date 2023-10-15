@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { twMerge } from 'tailwind-merge'
 import { PlanetsName } from '../types'
 import { useCallback, useEffect, useRef } from 'react'
-import { usePathname } from 'next/navigation'
+import { useParams } from 'next/navigation'
 import { HeaderPlanetLinkIndicatorData } from './types'
 
 type Props = {
@@ -25,13 +25,13 @@ const planetsColor: { [planetName in PlanetsName]: string } = {
 }
 
 export const HeaderPlanetLink = ({ name, setCurrentLinkIndicatorData }: Props) => {
-    const pathName = usePathname()
+    const { planetSlug } = useParams<{ planetSlug: PlanetsName }>()
 
     const ref = useRef<HTMLLIElement>(null)
 
     const planetColor = planetsColor[name]
 
-    const isCurrentRoute = pathName === `/${name}`
+    const isCurrentRoute = planetSlug === name
 
     // Update the current link indicator with the current found link
     const handleChangeCurrentLinkIndicatorData = useCallback(() => {
@@ -67,7 +67,7 @@ export const HeaderPlanetLink = ({ name, setCurrentLinkIndicatorData }: Props) =
     return (
         <li className="pl-6 pr-8 tablet:px-0" ref={ref} data-attribute-name={name}>
             <Link
-                href={name}
+                href={`/${name}/overview`}
                 className="flex items-center justify-between border-b-1 border-b-white/10 py-5 tablet:border-0 tablet:py-9"
             >
                 <div className="flex items-center gap-6">

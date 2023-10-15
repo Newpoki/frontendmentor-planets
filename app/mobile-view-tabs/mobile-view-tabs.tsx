@@ -2,8 +2,8 @@
 
 import { MobileViewTab } from './mobile-view-tab'
 import { useState } from 'react'
-import { PlanetViewTabIndicatorData } from './types'
 import { MobileViewTabsIndicator } from './mobile-view-tabs-indicator'
+import { PlanetViewTabIndicatorData } from '../types'
 
 export const MobileViewTabs = () => {
     const [currentPlanetViewTabIndicatorData, setCurrentPlanetViewTabIndicatorData] =
@@ -17,15 +17,15 @@ export const MobileViewTabs = () => {
                 />
 
                 <MobileViewTab
-                    name="overview"
+                    view="overview"
                     setCurrentPlanetViewTabIndicatorData={setCurrentPlanetViewTabIndicatorData}
                 />
                 <MobileViewTab
-                    name="structure"
+                    view="structure"
                     setCurrentPlanetViewTabIndicatorData={setCurrentPlanetViewTabIndicatorData}
                 />
                 <MobileViewTab
-                    name="surface"
+                    view="surface"
                     setCurrentPlanetViewTabIndicatorData={setCurrentPlanetViewTabIndicatorData}
                 />
             </ul>

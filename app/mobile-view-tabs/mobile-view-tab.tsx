@@ -1,24 +1,23 @@
-import { useParams, useSearchParams } from 'next/navigation'
+import { useParams } from 'next/navigation'
 import { useCallback, useEffect, useRef } from 'react'
-import { PlanetsName } from '../types'
+import { PlanetViewTabIndicatorData, PlanetViewTabsName, PlanetsName } from '../types'
 import Link from 'next/link'
-import { PlanetViewTabIndicatorData, PlanetViewTabsName } from './types'
 import { twJoin } from 'tailwind-merge'
 
 type Props = {
-    name: PlanetViewTabsName
+    view: PlanetViewTabsName
     setCurrentPlanetViewTabIndicatorData: (data: PlanetViewTabIndicatorData) => void
 }
 
-export const MobileViewTab = ({ name, setCurrentPlanetViewTabIndicatorData }: Props) => {
-    const { slug } = useParams<{ slug: PlanetsName }>()
-    const searchParams = useSearchParams()
+export const MobileViewTab = ({ view, setCurrentPlanetViewTabIndicatorData }: Props) => {
+    const { planetSlug, view: viewParam } = useParams<{
+        planetSlug: PlanetsName
+        view: PlanetViewTabsName
+    }>()
 
     const ref = useRef<HTMLLIElement>(null)
 
-    const view = searchParams.get('view')
-
-    const isActiveTab = view === name || (view == null && name === 'overview')
+    const isActiveTab = view === viewParam
 
     // Update the current link indicator with the current found link
     const handleChangeCurrentLinkIndicatorData = useCallback(() => {
@@ -34,11 +33,11 @@ export const MobileViewTab = ({ name, setCurrentPlanetViewTabIndicatorData }: Pr
                 left: clientRect.left,
                 width: clientRect.width,
                 name: name as PlanetViewTabsName,
-                planetName: slug,
+                planetName: planetSlug,
                 bottom: clientRect.y + clientRect.height,
             })
         }
-    }, [isActiveTab, setCurrentPlanetViewTabIndicatorData, slug])
+    }, [isActiveTab, setCurrentPlanetViewTabIndicatorData, planetSlug])
 
     useEffect(() => {
         handleChangeCurrentLinkIndicatorData()
@@ -54,15 +53,18 @@ export const MobileViewTab = ({ name, setCurrentPlanetViewTabIndicatorData }: Pr
     }, [handleChangeCurrentLinkIndicatorData])
 
     return (
-        <li ref={ref} data-attribute-name={name}>
-            <Link href={`/${slug}?view=${name}`} className="flex items-center justify-between py-5">
+        <li ref={ref} data-attribute-name={view}>
+            <Link
+                href={`/${planetSlug}/${view}`}
+                className="flex items-center justify-between py-5"
+            >
                 <span
                     className={twJoin(
                         'text-menuSmall uppercase text-white/50',
                         isActiveTab && 'text-white/100'
                     )}
                 >
-                    {name}
+                    {view}
                 </span>
             </Link>
         </li>
