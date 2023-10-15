@@ -27,7 +27,7 @@ export const HeaderMobileMenu = () => {
 
             <Drawer className="flex h-[calc(100%-70px)] flex-col justify-center" isOpen={isOpen}>
                 <nav>
-                    <ul className="overflow-y-auto">
+                    <ul className="overflow-y-auto" onClick={handleToggleDrawer}>
                         <HeaderPlanetLinkList />
                     </ul>
                 </nav>
