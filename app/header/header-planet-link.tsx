@@ -23,17 +23,19 @@ export const HeaderPlanetLink = ({ name }: Props) => {
     const planetColor = planetsColor[name]
 
     return (
-        <li className="pl-6 pr-8">
+        <li className="tablet:px-0 pl-6 pr-8">
             <Link
                 href={name}
-                className="flex items-center justify-between border-b-1 border-b-white/10 py-5"
+                className="tablet:border-0 tablet:py-0 flex items-center justify-between border-b-1 border-b-white/10 py-5"
             >
                 <div className="flex items-center gap-6">
-                    <span className={twMerge('h-5 w-5 rounded-full', planetColor)} />
-                    <span className="text-menu uppercase">{name}</span>
+                    <span className={twMerge('tablet:hidden h-5 w-5 rounded-full', planetColor)} />
+                    <span className="tablet:text-white/75 tablet:hover:text-white text-menu uppercase text-white">
+                        {name}
+                    </span>
                 </div>
 
-                <IconChevron />
+                <IconChevron className="tablet:hidden" />
             </Link>
         </li>
     )

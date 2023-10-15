@@ -5,6 +5,7 @@ import { HeaderPlanetLink } from './header-planet-link'
 import IconHamburger from '@/public/assets/icon-hamburger.svg'
 import { useCallback, useState } from 'react'
 import { twMerge } from 'tailwind-merge'
+import { HeaderPlanetLinkList } from './header-planet-link-list'
 
 export const HeaderMobileMenu = () => {
     const [isOpen, setIsOpen] = useState(false)
@@ -15,7 +16,7 @@ export const HeaderMobileMenu = () => {
 
     return (
         <>
-            <button type="button" onClick={handleToggleDrawer}>
+            <button type="button" onClick={handleToggleDrawer} className="tablet:hidden">
                 <IconHamburger
                     className={twMerge(
                         'text-white',
@@ -26,16 +27,11 @@ export const HeaderMobileMenu = () => {
             </button>
 
             <Drawer className="flex h-[calc(100%-70px)] flex-col justify-center" isOpen={isOpen}>
-                <ul className="overflow-y-auto">
-                    <HeaderPlanetLink name="mercury" />
-                    <HeaderPlanetLink name="venus" />
-                    <HeaderPlanetLink name="earth" />
-                    <HeaderPlanetLink name="mars" />
-                    <HeaderPlanetLink name="jupiter" />
-                    <HeaderPlanetLink name="saturn" />
-                    <HeaderPlanetLink name="uranus" />
-                    <HeaderPlanetLink name="neptune" />
-                </ul>
+                <nav>
+                    <ul className="overflow-y-auto">
+                        <HeaderPlanetLinkList />
+                    </ul>
+                </nav>
             </Drawer>
         </>
     )

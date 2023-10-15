@@ -7,6 +7,10 @@ const config: Config = {
         './app/**/*.{js,ts,jsx,tsx,mdx}',
     ],
     theme: {
+        screens: {
+            tablet: '768px',
+            desktop: '1440px',
+        },
         colors: {
             white: 'rgb(255, 255, 255)',
             space: 'rgb(7, 7, 36)',
