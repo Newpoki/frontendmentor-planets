@@ -1,24 +1,11 @@
-import Image from 'next/image'
 import IconSource from '@/public/assets/icon-source.svg'
 import { PlanetDataItem } from './planet-data-item'
 import { PlanetViewLinkListItem } from './planet-view-link-list-item'
-import { PlanetsName } from '@/app/types'
-import { twMerge } from 'tailwind-merge'
 import { getPlanetData } from './get-planet-data'
 import { getIsValidPlanetName } from '@/app/get-is-valid-planet-name'
 import { getIsValidViewTab } from '@/app/get-is-valid-view-tab'
 import { redirect } from 'next/navigation'
-
-const planetsSizes: { [planetName in PlanetsName]: string } = {
-    mercury: 'w-[111px] tablet:w-[184px] desktop:w-[290px]',
-    venus: 'w-[154px] tablet:w-[253px] desktop:w-[400px]',
-    earth: 'w-[173px] tablet:w-[285px] desktop:w-[450px]',
-    mars: 'w-[129px] tablet:w-[213px] desktop:w-[336px]',
-    jupiter: 'w-[224px] tablet:w-[369px] desktop:w-[582px]',
-    saturn: 'w-[256px] tablet:w-[422px] desktop:w-[666px]',
-    uranus: 'w-[176px] tablet:w-[290px] desktop:w-[458px]',
-    neptune: 'w-[173px] tablet:w-[285px] desktop:w-[450px]',
-}
+import { PlanetImage } from './planet-image'
 
 type Props = {
     params: {
@@ -33,6 +20,8 @@ export default function Planet({ params }: Props) {
     if (!getIsValidPlanetName(planetSlug) || !getIsValidViewTab(view)) {
         redirect('/earth/overview')
     }
+
+    const planetData = getPlanetData(planetSlug)
 
     const {
         id,
@@ -65,21 +54,10 @@ export default function Planet({ params }: Props) {
         },
     } as const
 
-    const planetSize = planetsSizes[id]
-
     return (
         <article className="flex flex-1 flex-col px-6 pb-12 tablet:px-10 tablet:py-9 desktop:px-[165px] desktop:py-14">
             <div className="flex flex-1 flex-col desktop:grid desktop:grid-cols-[2fr_1fr]">
-                <section className="flex flex-1 items-center justify-center p-4">
-                    <div className={twMerge('relative aspect-square', planetSize)}>
-                        <Image
-                            src={`/assets/planets/${mappedData[view].image}`}
-                            layout="fill"
-                            objectFit="contain"
-                            alt="Illustration of planet earth"
-                        />
-                    </div>
-                </section>
+                <PlanetImage planet={planetData} view={view} />
 
                 <section className="text-center tablet:text-left desktop:flex">
                     <div className="mb-7 tablet:grid tablet:grid-cols-2 tablet:items-center tablet:gap-[70px] desktop:flex desktop:flex-col desktop:justify-center desktop:gap-10">
