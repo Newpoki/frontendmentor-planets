@@ -35,7 +35,7 @@ export const PlanetImage = ({ planet, view }: Props) => {
     const planetSize = planetsSizes[planet.id]
 
     return (
-        <section className="relative flex flex-1 items-center justify-center p-4">
+        <section className="relative flex flex-1 items-center justify-center p-5">
             <div className={twMerge('relative aspect-square', planetSize)}>
                 <Image
                     src={`/assets/planets/${displayedIllustration}`}
