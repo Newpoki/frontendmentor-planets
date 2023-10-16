@@ -8,7 +8,7 @@ import { useCallback, useEffect, useRef } from 'react'
 import { useParams } from 'next/navigation'
 import { HeaderPlanetLinkIndicatorData } from './types'
 import { PLANETS_COLORS } from '../constants'
-import { getIsValidPlanetViewName } from '../get-is-valid-planet-view-name'
+import { getIsValidPlanetViewName } from '../utils/get-is-valid-planet-view-name'
 
 type Props = {
     name: PlanetName
