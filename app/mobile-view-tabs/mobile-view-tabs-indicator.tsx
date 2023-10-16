@@ -1,9 +1,9 @@
 'use client'
 
 import { twMerge } from 'tailwind-merge'
-import { PlanetViewTabIndicatorData, PlanetsName } from '../types'
+import { PlanetViewTabIndicatorData, PlanetName } from '../types'
 
-const planetsColor: { [planetName in PlanetsName]: string } = {
+const planetsColor: { [planetName in PlanetName]: string } = {
     mercury: 'bg-mercury',
     venus: 'bg-venus',
     earth: 'bg-earth',

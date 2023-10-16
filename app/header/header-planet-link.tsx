@@ -3,17 +3,17 @@
 import IconChevron from '@/public/assets/icon-chevron.svg'
 import Link from 'next/link'
 import { twMerge } from 'tailwind-merge'
-import { PlanetsName } from '../types'
+import { PlanetName } from '../types'
 import { useCallback, useEffect, useRef } from 'react'
 import { useParams } from 'next/navigation'
 import { HeaderPlanetLinkIndicatorData } from './types'
 
 type Props = {
-    name: PlanetsName
+    name: PlanetName
     setCurrentLinkIndicatorData?: (data: HeaderPlanetLinkIndicatorData) => void
 }
 
-const planetsColor: { [planetName in PlanetsName]: string } = {
+const planetsColor: { [planetName in PlanetName]: string } = {
     mercury: 'bg-mercury-soft',
     venus: 'bg-venus-soft',
     earth: 'bg-earth-soft',
@@ -25,7 +25,7 @@ const planetsColor: { [planetName in PlanetsName]: string } = {
 }
 
 export const HeaderPlanetLink = ({ name, setCurrentLinkIndicatorData }: Props) => {
-    const { planetSlug } = useParams<{ planetSlug: PlanetsName }>()
+    const { planetSlug } = useParams<{ planetSlug: PlanetName }>()
 
     const ref = useRef<HTMLLIElement>(null)
 
@@ -46,7 +46,7 @@ export const HeaderPlanetLink = ({ name, setCurrentLinkIndicatorData }: Props) =
             setCurrentLinkIndicatorData({
                 left: clientRect.left,
                 width: clientRect.width,
-                name: name as PlanetsName,
+                name: name as PlanetName,
             })
         }
     }, [isCurrentRoute, setCurrentLinkIndicatorData])

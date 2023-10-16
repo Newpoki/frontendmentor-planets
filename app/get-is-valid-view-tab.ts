@@ -1,5 +1,5 @@
-import { PlanetViewTabsName } from './types'
+import { PlanetViewName } from './types'
 
-export const getIsValidViewTab = (value: string): value is PlanetViewTabsName => {
+export const getIsValidViewTab = (value: string): value is PlanetViewName => {
     return ['overview', 'structure', 'surface'].includes(value)
 }

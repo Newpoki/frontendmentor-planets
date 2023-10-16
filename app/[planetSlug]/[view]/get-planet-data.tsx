@@ -1,6 +1,6 @@
 import 'server-only'
 
-import { PlanetsName } from '@/app/types'
+import { PlanetName } from '@/app/types'
 import { PlanetData } from './types'
 
 const planetData: PlanetData = {
@@ -230,6 +230,6 @@ const planetData: PlanetData = {
     },
 }
 
-export function getPlanetData(planetName: PlanetsName) {
+export function getPlanetData(planetName: PlanetName) {
     return planetData[planetName]
 }

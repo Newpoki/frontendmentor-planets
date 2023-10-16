@@ -1,4 +1,4 @@
-export type PlanetsName =
+export type PlanetName =
     | 'mercury'
     | 'venus'
     | 'earth'
@@ -8,12 +8,12 @@ export type PlanetsName =
     | 'uranus'
     | 'neptune'
 
-export type PlanetViewTabsName = 'overview' | 'structure' | 'surface'
+export type PlanetViewName = 'overview' | 'structure' | 'surface'
 
 export type PlanetViewTabIndicatorData = {
     left: number
     width: number
-    name: PlanetViewTabsName
-    planetName: PlanetsName
+    name: PlanetViewName
+    planetName: PlanetName
     bottom: number
 }

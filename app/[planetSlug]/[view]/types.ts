@@ -1,4 +1,4 @@
-import { PlanetsName } from '@/app/types'
+import { PlanetName } from '@/app/types'
 
 type PlanetView = {
     content: string
@@ -6,7 +6,7 @@ type PlanetView = {
 }
 
 export type Planet = {
-    id: PlanetsName
+    id: PlanetName
     name: string
     overview: PlanetView
     structure: PlanetView
@@ -23,5 +23,5 @@ export type Planet = {
 }
 
 export type PlanetData = {
-    [planetName in PlanetsName]: Planet
+    [planetName in PlanetName]: Planet
 }

@@ -1,18 +1,18 @@
 import { useParams } from 'next/navigation'
 import { useCallback, useEffect, useRef } from 'react'
-import { PlanetViewTabIndicatorData, PlanetViewTabsName, PlanetsName } from '../types'
+import { PlanetViewTabIndicatorData, PlanetViewName, PlanetName } from '../types'
 import Link from 'next/link'
 import { twJoin } from 'tailwind-merge'
 
 type Props = {
-    view: PlanetViewTabsName
+    view: PlanetViewName
     setCurrentPlanetViewTabIndicatorData: (data: PlanetViewTabIndicatorData) => void
 }
 
 export const MobileViewTab = ({ view, setCurrentPlanetViewTabIndicatorData }: Props) => {
     const { planetSlug, view: viewParam } = useParams<{
-        planetSlug: PlanetsName
-        view: PlanetViewTabsName
+        planetSlug: PlanetName
+        view: PlanetViewName
     }>()
 
     const ref = useRef<HTMLLIElement>(null)
@@ -32,7 +32,7 @@ export const MobileViewTab = ({ view, setCurrentPlanetViewTabIndicatorData }: Pr
             setCurrentPlanetViewTabIndicatorData({
                 left: clientRect.left,
                 width: clientRect.width,
-                name: name as PlanetViewTabsName,
+                name: name as PlanetViewName,
                 planetName: planetSlug,
                 bottom: clientRect.y + clientRect.height,
             })

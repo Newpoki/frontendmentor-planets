@@ -1,6 +1,6 @@
-import { PlanetsName } from './types'
+import { PlanetName } from './types'
 
-export const getIsValidPlanetName = (value: string): value is PlanetsName => {
+export const getIsValidPlanetName = (value: string): value is PlanetName => {
     return ['mercury', 'venus', 'earth', 'mars', 'jupiter', 'saturn', 'uranus', 'neptune'].includes(
         value
     )

@@ -1,14 +1,14 @@
 import Image from 'next/image'
 import { twMerge } from 'tailwind-merge'
 import { Planet } from './types'
-import { PlanetViewTabsName, PlanetsName } from '@/app/types'
+import { PlanetViewName, PlanetName } from '@/app/types'
 
 type Props = {
     planet: Planet
-    view: PlanetViewTabsName
+    view: PlanetViewName
 }
 
-const planetsSizes: { [planetName in PlanetsName]: string } = {
+const planetsSizes: { [planetName in PlanetName]: string } = {
     mercury: 'w-[111px] tablet:w-[184px] desktop:w-[290px]',
     venus: 'w-[154px] tablet:w-[253px] desktop:w-[400px]',
     earth: 'w-[173px] tablet:w-[285px] desktop:w-[450px]',
@@ -19,7 +19,7 @@ const planetsSizes: { [planetName in PlanetsName]: string } = {
     neptune: 'w-[173px] tablet:w-[285px] desktop:w-[450px]',
 }
 
-const getDisplayedIllustration = (planet: Planet, view: PlanetViewTabsName) => {
+const getDisplayedIllustration = (planet: Planet, view: PlanetViewName) => {
     switch (view) {
         case 'overview':
         case 'surface':

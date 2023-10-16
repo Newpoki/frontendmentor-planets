@@ -1,4 +1,4 @@
-import { PlanetsName } from '../types'
+import { PlanetName } from '../types'
 import { twMerge } from 'tailwind-merge'
 import { HeaderPlanetLinkIndicatorData } from './types'
 
@@ -6,7 +6,7 @@ type Props = {
     currentLinkIndicatorData: HeaderPlanetLinkIndicatorData | null
 }
 
-const planetsColor: { [planetName in PlanetsName]: string } = {
+const planetsColor: { [planetName in PlanetName]: string } = {
     mercury: 'bg-mercury',
     venus: 'bg-venus',
     earth: 'bg-earth',
@@ -28,7 +28,7 @@ export const HeaderPlanetLinkIndicator = ({ currentLinkIndicatorData }: Props) =
 
     return (
         <div
-            className={twMerge('desktop:block fixed left-0 hidden h-1 transition-all', color)}
+            className={twMerge('fixed left-0 hidden h-1 transition-all desktop:block', color)}
             style={{
                 transform: `translateX(${left}px)`,
                 width: width,

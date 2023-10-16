@@ -1,16 +1,16 @@
-import { PlanetViewTabsName, PlanetsName } from '@/app/types'
+import { PlanetViewName, PlanetName } from '@/app/types'
 import Link from 'next/link'
 import { twMerge } from 'tailwind-merge'
 
 type Props = {
     number: number
     label: string
-    value: PlanetViewTabsName
-    planetName: PlanetsName
-    view: PlanetViewTabsName
+    value: PlanetViewName
+    planetName: PlanetName
+    view: PlanetViewName
 }
 
-const activeClassNames: { [planetName in PlanetsName]: string } = {
+const activeClassNames: { [planetName in PlanetName]: string } = {
     mercury: 'bg-mercury hover:bg-mercury border-mercury',
     venus: 'bg-venus hover:bg-venus border-venus',
     earth: 'bg-earth hover:bg-earth border-earth',
