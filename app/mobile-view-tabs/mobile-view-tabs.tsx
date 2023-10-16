@@ -11,7 +11,7 @@ export const MobileViewTabs = () => {
 
     return (
         <nav>
-            <ul className="flex items-center justify-between border-b-1 border-b-white/20 px-5">
+            <ul className="flex items-center justify-between border-b-1 border-b-white/20 px-5 tablet:hidden">
                 <MobileViewTabsIndicator
                     currentPlanetViewTabIndicatorData={currentPlanetViewTabIndicatorData}
                 />
