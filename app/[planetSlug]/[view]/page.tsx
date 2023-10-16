@@ -18,7 +18,7 @@ export default function Planet() {
             </section>
 
             <section className="px-6 text-center tablet:text-left">
-                <div className="mb-8 tablet:grid tablet:grid-cols-2 tablet:items-center tablet:gap-[70px]">
+                <div className="mb-7 tablet:grid tablet:grid-cols-2 tablet:items-center tablet:gap-[70px]">
                     <div>
                         <h1 className="mb-4 font-antonio text-h2 uppercase tablet:mb-6 tablet:text-[48px] tablet:leading-[normal]">
                             Earth
