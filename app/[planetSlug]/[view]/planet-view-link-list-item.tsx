@@ -1,14 +1,13 @@
-'use client'
-
 import { PlanetViewTabsName, PlanetsName } from '@/app/types'
 import Link from 'next/link'
-import { useParams } from 'next/navigation'
 import { twMerge } from 'tailwind-merge'
 
 type Props = {
     number: number
     label: string
     value: PlanetViewTabsName
+    planetName: PlanetsName
+    view: PlanetViewTabsName
 }
 
 const activeClassNames: { [planetName in PlanetsName]: string } = {
@@ -22,15 +21,10 @@ const activeClassNames: { [planetName in PlanetsName]: string } = {
     neptune: 'bg-neptune hover:bg-neptune border-neptune',
 }
 
-export const PlanetViewLinkListItem = ({ number, label, value }: Props) => {
+export const PlanetViewLinkListItem = ({ number, label, value, planetName, view }: Props) => {
     const displayedNumber = `${number}`.padStart(2, '0')
 
-    const { planetSlug, view } = useParams<{
-        planetSlug: PlanetsName
-        view: PlanetViewTabsName
-    }>()
-
-    const activeLinkBgColor = activeClassNames[planetSlug]
+    const activeLinkBgColor = activeClassNames[planetName]
 
     const isActiveLink = value === view
 
@@ -41,7 +35,7 @@ export const PlanetViewLinkListItem = ({ number, label, value }: Props) => {
                     'flex w-full items-center gap-4 border-1 border-white/20 px-5 py-2 text-menuSmall leading-[25px] tracking-[1.929px] transition-colors hover:border-gray-dark hover:bg-gray-dark desktop:gap-6 desktop:text-h3',
                     isActiveLink && activeLinkBgColor
                 )}
-                href={`/${planetSlug}/${value}`}
+                href={`/${planetName}/${value}`}
             >
                 <span className="text-white/50">{displayedNumber}</span>
                 <span className="uppercase">{label}</span>
