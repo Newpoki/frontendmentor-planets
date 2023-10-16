@@ -68,13 +68,13 @@ export const HeaderPlanetLink = ({ name, setCurrentLinkIndicatorData }: Props) =
         <li className="pl-6 pr-8 tablet:px-0" ref={ref} data-attribute-name={name}>
             <Link
                 href={`/${name}/overview`}
-                className="flex items-center justify-between border-b-1 border-b-white/10 py-5 tablet:border-0 tablet:py-9"
+                className="flex items-center justify-between border-b-1 border-b-white/10 py-5 tablet:border-0 tablet:py-0 desktop:py-[30px]"
             >
                 <div className="flex items-center gap-6">
                     <span className={twMerge('h-5 w-5 rounded-full tablet:hidden', planetColor)} />
                     <span
                         className={twMerge(
-                            'text-menu uppercase text-white tablet:text-white/75 tablet:hover:text-white',
+                            'text-menu uppercase text-white transition-colors tablet:text-[11px] tablet:font-[700] tablet:leading-[25px] tablet:tracking-[1px] tablet:text-white/75 tablet:hover:text-white',
                             isCurrentRoute && 'tablet:text-white'
                         )}
                     >
