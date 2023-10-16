@@ -2,13 +2,27 @@ import Image from 'next/image'
 import IconSource from '@/public/assets/icon-source.svg'
 import { PlanetDataItem } from './planet-data-item'
 import { PlanetViewLinkListItem } from './planet-view-link-list-item'
+import { PlanetsName } from '@/app/types'
+import { twMerge } from 'tailwind-merge'
 
+const planetsSizes: { [planetName in PlanetsName]: string } = {
+    mercury: 'w-[111px] tablet:w-[184px] desktop:w-[290px]',
+    venus: 'w-[154px] tablet:w-[253px] desktop:w-[400px]',
+    earth: 'w-[173px] tablet:w-[285px] desktop:w-[450px]',
+    mars: 'w-[129px] tablet:w-[213px] desktop:w-[336px]',
+    jupiter: 'w-[224px] tablet:w-[369px] desktop:w-[582px]',
+    saturn: 'w-[256px] tablet:w-[422px] desktop:w-[666px]',
+    uranus: 'w-[176px] tablet:w-[290px] desktop:w-[458px]',
+    neptune: 'w-[173px] tablet:w-[285px] desktop:w-[450px]',
+}
 export default function Planet() {
+    const planetSize = planetsSizes['earth']
+
     return (
         <article className="flex flex-1 flex-col px-6 pb-12 tablet:px-10 tablet:py-9 desktop:px-[165px] desktop:py-14">
             <div className="flex flex-1 flex-col desktop:grid desktop:grid-cols-[2fr_1fr]">
                 <section className="flex flex-1 items-center justify-center p-4">
-                    <div className="relative aspect-square w-[43%]">
+                    <div className={twMerge('relative aspect-square', planetSize)}>
                         <Image
                             src="/assets/planets/planet-earth.svg"
                             layout="fill"
