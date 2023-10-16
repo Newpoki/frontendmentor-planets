@@ -5,7 +5,7 @@ import { getPlanetData } from './get-planet-data'
 import { getIsValidPlanetName } from '@/app/get-is-valid-planet-name'
 import { getIsValidViewTab } from '@/app/get-is-valid-view-tab'
 import { redirect } from 'next/navigation'
-import { PlanetImage } from './planet-image'
+import { PlanetIllustrations } from './planet-illustrations'
 
 type Props = {
     params: {
@@ -57,7 +57,7 @@ export default function Planet({ params }: Props) {
     return (
         <article className="flex flex-1 flex-col px-6 pb-12 tablet:px-10 tablet:py-9 desktop:px-[165px] desktop:py-14">
             <div className="flex flex-1 flex-col desktop:grid desktop:grid-cols-[2fr_1fr]">
-                <PlanetImage planet={planetData} view={view} />
+                <PlanetIllustrations planet={planetData} view={view} />
 
                 <section className="text-center tablet:text-left desktop:flex">
                     <div className="mb-7 tablet:grid tablet:grid-cols-2 tablet:items-center tablet:gap-[70px] desktop:flex desktop:flex-col desktop:justify-center desktop:gap-10">
