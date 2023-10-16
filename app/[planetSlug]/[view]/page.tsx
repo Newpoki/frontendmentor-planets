@@ -34,7 +34,7 @@ export default function Planet() {
                     <IconSource />
                 </p>
 
-                <ul className="flex flex-col gap-2">
+                <ul className="flex flex-col gap-2 tablet:grid tablet:grid-cols-4">
                     <PlanetDataItem label="Rotation time" value="0.99 days" />
                     <PlanetDataItem label="Revolution time" value="365.26 days" />
                     <PlanetDataItem label="Radius" value="6,371 km" />
