@@ -1,5 +1,3 @@
-import 'server-only'
-
 import { PlanetViewName } from './types'
 import { PLANETS_VIEWS_NAME } from './constants'
 

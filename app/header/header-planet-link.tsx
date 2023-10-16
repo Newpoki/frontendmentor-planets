@@ -8,6 +8,7 @@ import { useCallback, useEffect, useRef } from 'react'
 import { useParams } from 'next/navigation'
 import { HeaderPlanetLinkIndicatorData } from './types'
 import { PLANETS_COLORS } from '../constants'
+import { getIsValidViewTab } from '../get-is-valid-view-tab'
 
 type Props = {
     name: PlanetName
@@ -15,13 +16,15 @@ type Props = {
 }
 
 export const HeaderPlanetLink = ({ name, setCurrentLinkIndicatorData }: Props) => {
-    const { planetSlug } = useParams<{ planetSlug: PlanetName }>()
+    const { planetSlug, view } = useParams<{ planetSlug: string; view: string }>()
 
     const ref = useRef<HTMLLIElement>(null)
 
     const planetColor = PLANETS_COLORS[name].soft
 
     const isCurrentRoute = planetSlug === name
+
+    const linkHref = getIsValidViewTab(view) ? `/${name}/${view}` : `/${name}/overview`
 
     // Update the current link indicator with the current found link
     const handleChangeCurrentLinkIndicatorData = useCallback(() => {
@@ -57,7 +60,7 @@ export const HeaderPlanetLink = ({ name, setCurrentLinkIndicatorData }: Props) =
     return (
         <li className="pl-6 pr-8 tablet:px-0" ref={ref} data-attribute-name={name}>
             <Link
-                href={`/${name}/overview`}
+                href={linkHref}
                 className="flex items-center justify-between border-b-1 border-b-white/10 py-5 tablet:border-0 tablet:py-0 desktop:py-[30px]"
             >
                 <div className="flex items-center gap-6">
