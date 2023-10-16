@@ -1,3 +1,5 @@
+import 'server-only'
+
 import { PlanetName } from './types'
 
 export const getIsValidPlanetName = (value: string): value is PlanetName => {

@@ -1,3 +1,5 @@
+import 'server-only'
+
 import { PlanetViewName } from './types'
 
 export const getIsValidViewTab = (value: string): value is PlanetViewName => {

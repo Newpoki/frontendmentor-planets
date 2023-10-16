@@ -1,18 +1,8 @@
 'use client'
 
 import { twMerge } from 'tailwind-merge'
-import { PlanetViewTabIndicatorData, PlanetName } from '../types'
-
-const planetsColor: { [planetName in PlanetName]: string } = {
-    mercury: 'bg-mercury',
-    venus: 'bg-venus',
-    earth: 'bg-earth',
-    mars: 'bg-mars',
-    jupiter: 'bg-jupiter',
-    saturn: 'bg-saturn',
-    uranus: 'bg-uranus',
-    neptune: 'bg-neptune',
-}
+import { PlanetViewTabIndicatorData } from '../types'
+import { PLANETS_COLORS } from '../constants'
 
 type Props = {
     currentPlanetViewTabIndicatorData: PlanetViewTabIndicatorData | null
@@ -25,7 +15,7 @@ export const MobileViewTabsIndicator = ({ currentPlanetViewTabIndicatorData }: P
 
     const { planetName, left, width, bottom } = currentPlanetViewTabIndicatorData
 
-    const color = planetsColor[planetName]
+    const color = PLANETS_COLORS[planetName].normal
 
     return (
         <div

@@ -7,21 +7,11 @@ import { PlanetName } from '../types'
 import { useCallback, useEffect, useRef } from 'react'
 import { useParams } from 'next/navigation'
 import { HeaderPlanetLinkIndicatorData } from './types'
+import { PLANETS_COLORS } from '../constants'
 
 type Props = {
     name: PlanetName
     setCurrentLinkIndicatorData?: (data: HeaderPlanetLinkIndicatorData) => void
-}
-
-const planetsColor: { [planetName in PlanetName]: string } = {
-    mercury: 'bg-mercury-soft',
-    venus: 'bg-venus-soft',
-    earth: 'bg-earth-soft',
-    mars: 'bg-mars-soft',
-    jupiter: 'bg-jupiter-soft',
-    saturn: 'bg-saturn-soft',
-    uranus: 'bg-uranus-soft',
-    neptune: 'bg-neptune-soft',
 }
 
 export const HeaderPlanetLink = ({ name, setCurrentLinkIndicatorData }: Props) => {
@@ -29,7 +19,7 @@ export const HeaderPlanetLink = ({ name, setCurrentLinkIndicatorData }: Props) =
 
     const ref = useRef<HTMLLIElement>(null)
 
-    const planetColor = planetsColor[name]
+    const planetColor = PLANETS_COLORS[name].soft
 
     const isCurrentRoute = planetSlug === name
 
