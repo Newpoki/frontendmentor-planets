@@ -6,11 +6,27 @@ import { getIsValidPlanetName } from '@/app/get-is-valid-planet-name'
 import { getIsValidViewTab } from '@/app/get-is-valid-view-tab'
 import { redirect } from 'next/navigation'
 import { PlanetIllustrations } from './planet-illustrations'
+import { capitalize } from '@/app/capitalize'
 
 type Props = {
     params: {
         planetSlug: string
         view: string
+    }
+}
+
+export async function generateMetadata({ params }: Props) {
+    const { planetSlug } = params
+
+    const isValidPlanetName = getIsValidPlanetName(planetSlug)
+
+    if (!isValidPlanetName) {
+        return null
+    }
+
+    return {
+        title: `Planets facts - ${capitalize(planetSlug)}`,
+        description: `Get some facts about ${planetSlug}`,
     }
 }
 
