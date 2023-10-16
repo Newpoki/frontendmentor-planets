@@ -38,7 +38,7 @@ export const PlanetViewLinkListItem = ({ number, label, value }: Props) => {
         <li>
             <Link
                 className={twMerge(
-                    'flex w-full items-center gap-4 border-1 border-white/20 px-5 py-2 text-menuSmall leading-[25px] tracking-[1.929px] transition-colors hover:border-gray-dark hover:bg-gray-dark',
+                    'flex w-full items-center gap-4 border-1 border-white/20 px-5 py-2 text-menuSmall leading-[25px] tracking-[1.929px] transition-colors hover:border-gray-dark hover:bg-gray-dark desktop:gap-6 desktop:text-h3',
                     isActiveLink && activeLinkBgColor
                 )}
                 href={`/${planetSlug}/${value}`}
