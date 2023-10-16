@@ -18,7 +18,8 @@ export const MobileViewTabsIndicator = ({ currentPlanetViewTabIndicatorData }: P
     const color = PLANETS_COLORS[planetName].normal
 
     return (
-        <div
+        // li as it's always used inside list
+        <li
             className={twMerge('fixed left-0 h-1 transition-all', color)}
             style={{
                 transform: `translateX(${left}px)`,

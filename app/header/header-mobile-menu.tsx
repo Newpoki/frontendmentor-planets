@@ -15,7 +15,12 @@ export const HeaderMobileMenu = () => {
 
     return (
         <>
-            <button type="button" onClick={handleToggleDrawer} className="tablet:hidden">
+            <button
+                type="button"
+                onClick={handleToggleDrawer}
+                className="tablet:hidden"
+                aria-label="toggle mobile menu"
+            >
                 <IconHamburger
                     className={twMerge(
                         'text-white',

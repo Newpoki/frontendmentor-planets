@@ -65,6 +65,7 @@ export const PlanetIllustrations = ({ planet, view }: Props) => {
                     src={`/assets/planets/${displayedIllustration}`}
                     fill
                     alt={`Illustration of planet ${planet.name}`}
+                    priority
                 />
             </div>
 

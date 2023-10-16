@@ -16,7 +16,8 @@ export const HeaderPlanetLinkIndicator = ({ currentLinkIndicatorData }: Props) =
     const color = PLANETS_COLORS[name].normal
 
     return (
-        <div
+        // li as it's always used inside list
+        <li
             className={twMerge('fixed left-0 hidden h-1 transition-all desktop:block', color)}
             style={{
                 transform: `translateX(${left}px)`,
