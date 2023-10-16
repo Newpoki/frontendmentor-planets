@@ -6,7 +6,7 @@ import { PlanetViewLinkListItem } from './planet-view-link-list-item'
 export default function Planet() {
     return (
         <article className="flex flex-1 flex-col pb-12">
-            <section className="flex h-[33dvh] items-center justify-center">
+            <section className="flex flex-1 items-center justify-center p-4">
                 <div className="relative aspect-square w-[43%]">
                     <Image
                         src="/assets/planets/planet-earth.svg"
@@ -60,7 +60,7 @@ export default function Planet() {
                     </ul>
                 </div>
 
-                <ul className="flex flex-col gap-2 tablet:grid tablet:grid-cols-4">
+                <ul className="flex flex-col gap-2 tablet:grid tablet:grid-cols-4 tablet:gap-3">
                     <PlanetDataItem label="Rotation time" value="0.99 days" />
                     <PlanetDataItem label="Revolution time" value="365.26 days" />
                     <PlanetDataItem label="Radius" value="6,371 km" />
