@@ -108,6 +108,19 @@ const config: Config = {
                     },
                 ],
             },
+            keyframes: {
+                'bg-infinite-h-scroll': {
+                    '0%': {
+                        backgroundPosition: '0 0',
+                    },
+                    '100%': {
+                        backgroundPosition: '-100dvw 0',
+                    },
+                },
+            },
+            animation: {
+                'bg-infinite-h-scroll': 'bg-infinite-h-scroll 60s linear infinite',
+            },
         },
     },
     plugins: [],

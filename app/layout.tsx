@@ -22,7 +22,7 @@ export default function RootLayout({ children }: Props) {
             <body
                 className={`${antonio.variable} ${spartan.variable} ${spartan.className} flex h-screen flex-col  bg-space text-white`}
             >
-                <div className="flex flex-1 flex-col overflow-hidden bg-stars-pattern bg-cover bg-center">
+                <div className="animate-bg-infinite-h-scroll flex flex-1 flex-col overflow-hidden bg-stars-pattern bg-cover bg-center">
                     <Header />
 
                     <MobileViewTabs />
