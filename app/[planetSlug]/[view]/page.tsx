@@ -3,7 +3,7 @@ import { PlanetDataItem } from './planet-data-item'
 import { PlanetViewLinkListItem } from './planet-view-link-list-item'
 import { getPlanetData } from './get-planet-data'
 import { getIsValidPlanetName } from '@/app/get-is-valid-planet-name'
-import { getIsValidViewTab } from '@/app/get-is-valid-view-tab'
+import { getIsValidPlanetViewName } from '@/app/get-is-valid-planet-view-name'
 import { notFound } from 'next/navigation'
 import { PlanetIllustrations } from './planet-illustrations'
 import { capitalize } from '@/app/capitalize'
@@ -50,7 +50,7 @@ export function generateStaticParams() {
 export default function Planet({ params }: Props) {
     const { planetSlug, view } = params
 
-    if (!getIsValidPlanetName(planetSlug) || !getIsValidViewTab(view)) {
+    if (!getIsValidPlanetName(planetSlug) || !getIsValidPlanetViewName(view)) {
         notFound()
     }
 

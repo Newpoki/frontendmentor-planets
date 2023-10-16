@@ -8,7 +8,7 @@ import { useCallback, useEffect, useRef } from 'react'
 import { useParams } from 'next/navigation'
 import { HeaderPlanetLinkIndicatorData } from './types'
 import { PLANETS_COLORS } from '../constants'
-import { getIsValidViewTab } from '../get-is-valid-view-tab'
+import { getIsValidPlanetViewName } from '../get-is-valid-planet-view-name'
 
 type Props = {
     name: PlanetName
@@ -24,7 +24,7 @@ export const HeaderPlanetLink = ({ name, setCurrentLinkIndicatorData }: Props) =
 
     const isCurrentRoute = planetSlug === name
 
-    const linkHref = getIsValidViewTab(view) ? `/${name}/${view}` : `/${name}/overview`
+    const linkHref = getIsValidPlanetViewName(view) ? `/${name}/${view}` : `/${name}/overview`
 
     // Update the current link indicator with the current found link
     const handleChangeCurrentLinkIndicatorData = useCallback(() => {
