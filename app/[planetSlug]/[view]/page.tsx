@@ -4,9 +4,10 @@ import { PlanetViewLinkListItem } from './planet-view-link-list-item'
 import { getPlanetData } from './get-planet-data'
 import { getIsValidPlanetName } from '@/app/get-is-valid-planet-name'
 import { getIsValidViewTab } from '@/app/get-is-valid-view-tab'
-import { redirect } from 'next/navigation'
+import { notFound } from 'next/navigation'
 import { PlanetIllustrations } from './planet-illustrations'
 import { capitalize } from '@/app/capitalize'
+import { PLANETS_NAME, PLANETS_VIEWS_NAME } from '@/app/constants'
 
 type Props = {
     params: {
@@ -30,11 +31,27 @@ export async function generateMetadata({ params }: Props) {
     }
 }
 
+type GeneratedStaticParams = Array<Props['params']>
+
+export function generateStaticParams() {
+    // Generate static params so next can build static routes for these files
+    return PLANETS_NAME.reduce<GeneratedStaticParams>((acc, planetName) => {
+        const allPlanetViews = PLANETS_VIEWS_NAME.map((viewName) => ({
+            planetSlug: planetName,
+            view: viewName,
+        }))
+
+        acc.push(...allPlanetViews)
+
+        return acc
+    }, [])
+}
+
 export default function Planet({ params }: Props) {
     const { planetSlug, view } = params
 
     if (!getIsValidPlanetName(planetSlug) || !getIsValidViewTab(view)) {
-        redirect('/earth/overview')
+        notFound()
     }
 
     const planetData = getPlanetData(planetSlug)

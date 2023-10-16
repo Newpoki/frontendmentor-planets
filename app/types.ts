@@ -1,14 +1,8 @@
-export type PlanetName =
-    | 'mercury'
-    | 'venus'
-    | 'earth'
-    | 'mars'
-    | 'jupiter'
-    | 'saturn'
-    | 'uranus'
-    | 'neptune'
+import { PLANETS_NAME, PLANETS_VIEWS_NAME } from './constants'
 
-export type PlanetViewName = 'overview' | 'structure' | 'surface'
+export type PlanetName = (typeof PLANETS_NAME)[number]
+
+export type PlanetViewName = (typeof PLANETS_VIEWS_NAME)[number]
 
 export type PlanetViewTabIndicatorData = {
     left: number

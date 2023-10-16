@@ -1,3 +1,16 @@
+export const PLANETS_NAME = [
+    'mercury',
+    'venus',
+    'earth',
+    'mars',
+    'jupiter',
+    'saturn',
+    'uranus',
+    'neptune',
+] as const
+
+export const PLANETS_VIEWS_NAME = ['overview', 'structure', 'surface'] as const
+
 export const PLANETS_COLORS = {
     mercury: { normal: 'bg-mercury', soft: 'bg-mercury-soft' },
     venus: { normal: 'bg-venus', soft: 'bg-venus-soft' },
