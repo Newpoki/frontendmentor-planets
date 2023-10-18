@@ -20,7 +20,7 @@ export const MobileViewTabsIndicator = ({ currentPlanetViewTabIndicatorData }: P
     return (
         // li as it's always used inside list
         <li
-            className={twMerge('fixed left-0 h-1 transition-all', color)}
+            className={twMerge('absolute left-0 h-1 transition-all', color)}
             style={{
                 transform: `translateX(${left}px)`,
                 width: width,

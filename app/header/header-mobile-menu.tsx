@@ -30,8 +30,8 @@ export const HeaderMobileMenu = () => {
                 />
             </button>
 
-            <Drawer className="flex h-[calc(100%-70px)] flex-col justify-center" isOpen={isOpen}>
-                <nav>
+            <Drawer className="flex h-[calc(100dvh-70px)] flex-col justify-center" isOpen={isOpen}>
+                <nav className="h-full">
                     <ul className="overflow-y-auto" onClick={handleToggleDrawer}>
                         <HeaderPlanetLinkList />
                     </ul>

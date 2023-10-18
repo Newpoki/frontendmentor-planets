@@ -18,7 +18,7 @@ export const HeaderPlanetLinkIndicator = ({ currentLinkIndicatorData }: Props) =
     return (
         // li as it's always used inside list
         <li
-            className={twMerge('fixed left-0 hidden h-1 transition-all desktop:block', color)}
+            className={twMerge('absolute left-0 hidden h-1 transition-all desktop:block', color)}
             style={{
                 transform: `translateX(${left}px)`,
                 width: width,
